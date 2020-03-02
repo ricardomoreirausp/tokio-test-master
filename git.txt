@@ -1,0 +1,8 @@
+git init
+git add .
+git commit -m "first commit"
+
+git remote add origin https://github.com/ricardomoreirausp/tokio-test-master.git
+git push origin master
+git clone https://github.com/ricardomoreirausp/tokio-test-master.git tokio-test-master
+git pull https://github.com/ricardomoreirausp/tokio-test-master.git
