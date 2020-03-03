@@ -29,10 +29,6 @@ public class EnderecoService {
 		return repository.saveAll(enderecos);
 	}
 	
-	public List<Endereco> findAllByCustomerId(Long customerId){
-		return repository.findAllByCustomerId(customerId);
-	}
-	
 	/**
 	 * cria uma lista de Endereco, com ceps passados,<br>
 	 * mas se tiver um cep errado,seta o erro no result

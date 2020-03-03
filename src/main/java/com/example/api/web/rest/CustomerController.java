@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.api.domain.Customer;
 import com.example.api.service.CustomerService;
@@ -46,14 +45,13 @@ public class CustomerController {
 	}
 
 	@PutMapping
-	public Customer editar(@RequestBody @Valid Customer customer, UriComponentsBuilder uriBuilder) {
+	public Customer editar(@RequestBody @Valid Customer customer) {
 		service.findById(customer.getId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
-
 		return service.save(customer);
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<?> excluir (@PathVariable("id") Long id, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<?> excluir (@PathVariable("id") Long id) {
 		service.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found"));
 
 		service.deleteById(id);
